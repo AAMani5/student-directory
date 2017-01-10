@@ -26,7 +26,7 @@ end
 
 def print(students)
   students.each do |student|
-    if student[:name].length < 12
+    if student[:name].length < 12  # can change 12 to any other int depending on the need
       puts "#{student[:name]} (#{student[:cohort]} cohort)"
     end
   end

@@ -1,4 +1,4 @@
-# use a while loop to print the students list
+# use a while loop to print the students list instead of each() method
 
 def input_students
   puts "Please enter the names of the students"
@@ -25,10 +25,10 @@ def print_header
 end
 
 def print(students)
-  i = 0
-  while i < students.length
+  i = 0 # counter
+  while i < students.length # condition
     puts "#{students[i][:name]} (#{students[i][:cohort]} cohort)"
-    i = i + 1
+    i = i + 1 # update the counter
   end
 end
 

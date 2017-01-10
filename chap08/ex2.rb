@@ -1,4 +1,5 @@
-# to print the students whose name begins with specific letter (eg "T")
+# to print the a students whose name begins with specific letter (eg "T")
+# the specific letter is given as an argument to print() method
 
 def input_students
   puts "Please enter the names of the students"
@@ -38,5 +39,5 @@ end
 #nothing happens until we call the methods
 students = input_students
 print_header
-print(students, "T") 
+print(students, "T")
 print_footer(students)
