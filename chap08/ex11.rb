@@ -1,4 +1,5 @@
-# correct typos
+# correct typos from a file at
+# https://raw.githubusercontent.com/anitacanita/student-directory/master/typos.rb
 
 def input_students
   puts "Please enter the names of the students"

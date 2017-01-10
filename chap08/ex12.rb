@@ -25,7 +25,7 @@ def print_header
 end
 
 def print(students)
-  #if students.count > 0 # doing this will print the header & footer
+  #if students.count > 0 # doing this will print the header & footer anyways
     students.each do |student|
       puts "#{student[:name]} (#{student[:cohort]} cohort)"
     end

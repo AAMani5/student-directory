@@ -1,4 +1,4 @@
-# use each_with_index() to print a number before name of eah student
+# use each_with_index() to print a number before name of each student
 
 def input_students
   puts "Please enter the names of the students"
