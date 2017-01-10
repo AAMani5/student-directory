@@ -1,5 +1,5 @@
 # add extra info like hobby and height
-# randomly select a hobby and height from the list
+# currently the program randomly select's a hobby and height from an array
 def input_students
   puts "Please enter the names of the students"
   puts "To finih, just hit return twice"

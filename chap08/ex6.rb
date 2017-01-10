@@ -1,4 +1,6 @@
 # how center() works with String class
+# center() method takes width & an optional padding character
+# is there a way to dynamicaly change the widht?
 
 def input_students
   puts "Please enter the names of the students"

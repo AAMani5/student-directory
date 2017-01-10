@@ -1,6 +1,6 @@
-# get cohort as input & convert to symbol.
+# get cohort as input & convert to symbol. added a nw method cohort_check
 # default to :novenber
-# random month assigned if typing error
+# random month assigned if the user makes a typo
 
 def input_students
   puts "Please enter the names of the student"

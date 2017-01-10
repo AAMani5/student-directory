@@ -1,7 +1,7 @@
-# make a list of existing cohorts in students array
+# make a list of existing cohorts in students array [ thats what existing_cohort() returns]
 # display students grouped by cohorts
 # note: default cohort is november & if cohort entered has error, a random one will be assigned
-
+# also tried group_by() method in irb but it returns a hash.
 def input_students
   puts "Please enter the names of the student"
   # get the first name
