@@ -1,4 +1,4 @@
-# load students.csv by default if no cmd line argumment given
+# load students.csv by default if no cmd line argumment given. Changes to try_load_students method
 
 @students = [] # an empty array accessible to all methods
 def input_students
@@ -73,7 +73,7 @@ end
 
 def save_students
   # open the file for writing
-  file = File.open("../students.csv","a")
+  file = File.open("../students.csv","w")
   # iterate over the array of students
   @students.each do |student|
     student_data = [student[:name], student[:cohort]]
@@ -96,7 +96,6 @@ end
 def try_load_students
   # load students.csv by default
   filename = ARGV.first || "../students.csv" # first argument from the command line
-  return if filename.nil? # get out of the method if it isn't given
   if File.exists?(filename) # if it exists
     load_students(filename)
     puts "Loaded #{@students.count} from #{filename}"
