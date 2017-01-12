@@ -1,17 +1,15 @@
-# load students.csv by default if no cmd line argumment given
+# load students.csv by default if no cmd line argumment given. used || operator
 
 @students = [] # an empty array accessible to all methods
 def input_students
   puts "Please enter the names of the students"
   puts "To finih, just hit return twice"
   name = STDIN.gets.chomp
-  # while the name is not empty, repeat this code
-  while !name.empty? do
-    # add the student hash to the array
-     add_student(name, :november) # @students << {name: name, cohort: :november}
+
+  while !name.empty? do # continue getting code while input is not empty
+    add_student(name, :november) # add the student hash to the array
     puts "Now we have #{@students.count} students"
-    # get another name from the user
-    name = STDIN.gets.chomp
+    name = STDIN.gets.chomp # or $stdin.gets.chomp # get next student's name from user
   end
   # returns nothing, directly changes @students array
 end
@@ -72,10 +70,8 @@ def interactive_menu
 end
 
 def save_students
-  # open the file for writing
-  file = File.open("../students.csv","a")
-  # iterate over the array of students
-  @students.each do |student|
+  file = File.open("../students.csv","w") # open the file for writing
+  @students.each do |student| # iterate over the array of students to add data in cvs format
     student_data = [student[:name], student[:cohort]]
     csv_line = student_data.join(",")
     file.puts csv_line
@@ -88,14 +84,13 @@ def load_students(filename = "../students.csv") # load from parent dir
   file = File.open(filename, "r")
   file.readlines.each do |line|
     name, cohort = line.chomp.split(",")
-    add_student(name, cohort) # append the hash using shovel
+    add_student(name, cohort) # append the hash using a dedicated method 
   end
   file.close
 end
 
 def try_load_students
-  # load students.csv by default
-  filename = ARGV.first || "../students.csv" # first argument from the command line
+  filename = ARGV.first || "../students.csv" # first argument from the command line or default csv file
   return if filename.nil? # get out of the method if it isn't given
   if File.exists?(filename) # if it exists
     load_students(filename)
