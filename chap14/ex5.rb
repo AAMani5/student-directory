@@ -1,4 +1,6 @@
 # prompts user to enter a filename, if it does not exist -> msg & display menu
+# added a new method named prompt_for_filename just to get user input
+# user inout prompted while loading from and saving to files
 
 @students = [] # an empty array accessible to all methods
 def input_students
@@ -8,8 +10,8 @@ def input_students
   name = STDIN.gets.chomp
   # while the name is not empty, repeat this code
   while !name.empty? do
-    # add the student hash to the array
-     add_student(name, :november) # @students << {name: name, cohort: :november}
+
+    add_student(name, :november)  # add the student hash to the array
     puts "Now we have #{@students.count} students"
     # get another name from the user
     name = STDIN.gets.chomp
