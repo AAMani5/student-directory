@@ -9,7 +9,7 @@ def input_students
   # while the name is not empty, repeat this code
   while !name.empty? do
     # add the student hash to the array
-     add_student(name, :november) # @students << {name: name, cohort: :november}
+    add_student(name, :november) # dedicated method to add each student to instance variable
     puts "Now we have #{@students.count} students"
     # get another name from the user
     name = STDIN.gets.chomp
@@ -76,20 +76,18 @@ end
 
 def save_students
   puts "Saving students to students.csv file."
-  # open the file for writing
-  file = File.open("../students.csv","a")
-  # iterate over the array of students
-  @students.each do |student|
-    student_data = [student[:name], student[:cohort]]
-    csv_line = student_data.join(",")
-    file.puts csv_line
-  end
+  file = File.open("../students.csv","w") # open the file for writing & add data in cvs format
+    @students.each do |student|
+      student_data = [student[:name], student[:cohort]]
+      csv_line = student_data.join(",")
+      file.puts csv_line
+    end
   file.close # can also use File.open () do .... end to close file
   puts "#{@students.count} student names saved to file"
 end
 
 def load_students(filename = "../students.csv") # load from parent dir
-  # @students = [] # this will reset the variable and load only from file
+  # @students = [] # this will reset the variable and load only from file if saved in append mode
   puts "Loading student names from #{filename}"
   file = File.open(filename, "r")
   file.readlines.each do |line|
