@@ -1,4 +1,8 @@
-# use each_with_index() to print a number before name of each student
+# updated the program to use .to_enum.with_index(1) to start counting
+# from 1 instead of default 0
+# used each_with_index() to print a number before name of each student
+# but each_with_index() does not take an offset e.g: if I have to start the
+# index at 1
 
 def input_students
   puts "Please enter the names of the students"
@@ -25,8 +29,8 @@ def print_header
 end
 
 def print(students)
-  students.each_with_index do |student, index|
-    puts "#{index + 1}.#{student[:name]} (#{student[:cohort]} cohort)"
+  students.to_enum.with_index(1) do |student, index|
+    puts "#{index}.#{student[:name]} (#{student[:cohort]} cohort)"
   end
 end
 
