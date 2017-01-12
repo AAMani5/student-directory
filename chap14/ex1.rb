@@ -73,8 +73,8 @@ end
 
 def save_students
   # open the file for writing
-  file = File.open("../students.csv","a")
-  # iterate over the array of students
+  file = File.open("../students.csv","w")
+  # iterate over the array of students to add each student data to a file in cvs format
   @students.each do |student|
     student_data = [student[:name], student[:cohort]]
     csv_line = student_data.join(",")
