@@ -1,21 +1,18 @@
-# do not explicitly close a file. use do..end construct
+# did not explicitly close a file. used do..end construct
 # prompts user to enter a filename, if it does not exist -> msg & display menu
 # added a menu item 5. Empty a file
 # implemented singular_plural
-BEGIN{ puts "Welcome to Villians Academy"}
+BEGIN{puts "Welcome to Villians Academy"}
 @students = [] # an empty array accessible to all methods
 def input_students
   puts "You chose the option to input student names"
   puts "Please enter the names of the students"
   puts "To finih, just hit return twice"
   name = STDIN.gets.chomp
-  # while the name is not empty, repeat this code
-  while !name.empty? do
-    # add the student hash to the array
-     add_student(name, :november) # @students << {name: name, cohort: :november}
+  while !name.empty? do # get user input until user clicks onlt enter
+     add_student(name, :november)
     puts "Now we have #{@students.count} student#{singular_plural(@students)}"
-    # get another name from the user
-    name = STDIN.gets.chomp
+    name = STDIN.gets.chomp # prompt for the next name
   end
   # returns nothing, directly changes @students array
 end
@@ -76,7 +73,7 @@ def process(selection)
 end
 
 def interactive_menu
-  @first ||= true
+  @first ||= true  # to load from the defalut fle only once
   try_load_students if @first == true
   loop do
     print_menu
@@ -137,7 +134,7 @@ def try_load_students
     load_students(filename)
     @first = "done" # only load for the first time
   else # if it doesn't exist
-    puts "Sorry, #{filename} doesn't exist."
+    puts "Sorry, #{filename} doesn't exist."  # should I use file_does_not_exist method?
     exit(0) # quit the program
   end
 end
@@ -160,4 +157,4 @@ end
 
 interactive_menu
 
-END { puts "Thanks for using cmd line app."} # ?? not showing on screen
+END{puts "Fello Rubyist, Thanks for using cmd line app."; STDOUT.flush} # ?? not showing on screen
