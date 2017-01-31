@@ -2,6 +2,17 @@
 # display students grouped by cohorts
 # note: default cohort is november & if cohort entered has error, a random one will be assigned
 # also tried group_by() method in irb but it returns a hash.
+# students.group_by{|student| student[:cohort]}.map{|k,v| p k; v.map{|candidate|p candidate[:name]}}
+# if students = [{:name => "A",:cohort => :nov},{:name => "B",:cohort=>:jan},{:name=>"c",:cohort=>:nov},{:name=>"D",:cohort=>:jan}]
+# the above will output:
+=begin
+:nov
+"A"
+"c"
+:jan
+"B"
+"D"
+=end
 def input_students
   puts "Please enter the names of the student"
   # get the first name
