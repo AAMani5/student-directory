@@ -156,6 +156,7 @@ def file_does_not_exist
   interactive_menu
 end
 
-interactive_menu
 
-END { puts "Thanks for using cmd line app."} # ?? not showing on screen
+END { puts "Thanks for using cmd line app."} # was not working when it was below interactive_menu method call. Now it is :)
+
+interactive_menu
