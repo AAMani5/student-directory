@@ -157,6 +157,6 @@ def file_does_not_exist
 end
 
 
-END { puts "Thanks for using cmd line app."} # was not working when it was below interactive_menu method call. Now it is :)
+END { system("clear"); puts "Thanks for using cmd line app."} # was not working when it was below interactive_menu method call. Now it is :)
 
 interactive_menu
